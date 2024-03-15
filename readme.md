@@ -53,7 +53,7 @@ Read User route (GET)
 Update User route (PATCH)
 
 ```sh
-/user:userID?username=<username>&password=<password>
+/:userID?username=<username>&password=<password>
 ```
 
 Delete User route (DELETE)
