@@ -1,32 +1,28 @@
-const createUser = async ({ username, password }: any) =>
-  await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({ username, password });
-    }, 50);
-  });
+import { IUserCredentials } from "./user.interface";
+import { delay } from "./user.utils";
 
-const getUsers = async () =>
-  await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve([
-        ...Array(10).fill({ username: "demo_user", password: "demo_password" }),
-      ]);
-    }, 50);
-  });
+const createUser = async ({ username, password }: IUserCredentials) => {
+  await delay(50);
+  return { username, password };
+};
 
-const updateUser = async ({ username, password }: any) =>
-  await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({ username, password });
-    }, 50);
-  });
+const getUsers = async (): Promise<IUserCredentials[]> => {
+  await delay(50);
+  return Array(10).fill({ username: "demo_user", password: "demo_password" });
+};
 
-const deleteUser = async (userID: any) =>
-  await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({ username: "demo_user", password: "demo_password" });
-    }, 50);
-  });
+const updateUser = async ({
+  username,
+  password,
+}: IUserCredentials): Promise<IUserCredentials> => {
+  await delay(50);
+  return { username, password };
+};
+
+const deleteUser = async (userID: any): Promise<IUserCredentials> => {
+  await delay(50);
+  return { username: "demo_user", password: "demo_password" };
+};
 
 export const UserServices = {
   getUsers,

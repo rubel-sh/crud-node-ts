@@ -2,8 +2,10 @@ import httpStatus from "http-status";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import { UserServices } from "./user.service";
+import { IUserCredentials } from "./user.interface";
+import { Request, Response } from "express";
 
-const createUser = catchAsync(async (req, res) => {
+const createUser = catchAsync(async (req: Request, res: Response) => {
   const data = req.body;
   const createdUser = await UserServices.createUser(data);
 
@@ -15,7 +17,7 @@ const createUser = catchAsync(async (req, res) => {
   });
 });
 
-const getUsers = catchAsync(async (req, res) => {
+const getUsers = catchAsync(async (req: Request, res: Response) => {
   const listOfUsers = await UserServices.getUsers();
 
   sendResponse(res, {
@@ -26,11 +28,9 @@ const getUsers = catchAsync(async (req, res) => {
   });
 });
 
-const updateUser = catchAsync(async (req, res) => {
+const updateUser = catchAsync(async (req: Request, res: Response) => {
   const userID = req.params.userid;
-  const updateData = req.query;
-  console.log(updateData);
-
+  const updateData = req.query as IUserCredentials;
   const updatedUser = await UserServices.updateUser(updateData);
 
   sendResponse(res, {
@@ -41,9 +41,8 @@ const updateUser = catchAsync(async (req, res) => {
   });
 });
 
-const deleteUser = catchAsync(async (req, res) => {
+const deleteUser = catchAsync(async (req: Request, res: Response) => {
   const userID = req.params.userid;
-
   const deletedUser = await UserServices.deleteUser(userID);
 
   sendResponse(res, {

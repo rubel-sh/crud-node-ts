@@ -1,5 +1,5 @@
 {
-  "name": "personal-portfolio-server",
+  "name": "simple_express_server",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.ts",
@@ -8,11 +8,8 @@
     "start": "node dist/server.js",
     "build": "tsc"
   },
-  "lint-staged": {
-    "src/**/*.ts": "pnpm lint-prettier"
-  },
   "keywords": [],
-  "author": "Rubel Hossain",
+  "author": "Rubel Hossain: Github rubel_sh",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
