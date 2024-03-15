@@ -1,14 +1,8 @@
 import express from "express";
+import { ChapterRoutes } from "../modules/user/user.route";
 
 const router = express.Router();
 
-const moduleRoutes = [
-  {
-    path: "/users",
-    route: console.log("UserRoutes"), // path to module/user/user.route.ts routes
-  },
-];
-
-// moduleRoutes.forEach((route) => router.use(route.path, route.route));
+router.use("/user", ChapterRoutes);
 
 export default router;

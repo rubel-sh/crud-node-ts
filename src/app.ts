@@ -1,6 +1,7 @@
 import cors from "cors";
 import express, { Application, NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
+import router from "./app/routes";
 
 const app: Application = express();
 
@@ -10,11 +11,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use("api/v1", routes);
+app.use("/api/v1", router);
 
 // TESTING
 app.get("/", (req: Request, res: Response) => {
-  console.log("object");
   res.status(httpStatus.OK).json({
     messsage: "SERVER IS RUNNING",
   });
