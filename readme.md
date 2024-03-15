@@ -1,5 +1,11 @@
 # Quick Start
 
+Clone This Repository
+
+```sh
+git clone https://github.com/rubel-sh/crud-node-ts
+```
+
 Install dev dependencies
 
 ```sh
