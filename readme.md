@@ -51,7 +51,8 @@ Read User route (GET)
 ```
 
 Update User route (PATCH)
-###/user:userID?username=xyz&password=4321
+
+### /user:userID?username=xyz&password=4321
 
 ```sh
 /12?username=xyz&password=4321
