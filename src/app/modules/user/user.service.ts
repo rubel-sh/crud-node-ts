@@ -8,7 +8,9 @@ const createUser = async ({ username, password }: any) =>
 const getUsers = async () =>
   await new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve({ username: "demo_user", password: "demo_password" });
+      resolve([
+        ...Array(10).fill({ username: "demo_user", password: "demo_password" }),
+      ]);
     }, 50);
   });
 
@@ -19,8 +21,16 @@ const updateUser = async ({ username, password }: any) =>
     }, 50);
   });
 
+const deleteUser = async (userID: any) =>
+  await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ username: "demo_user", password: "demo_password" });
+    }, 50);
+  });
+
 export const UserServices = {
   getUsers,
   createUser,
   updateUser,
+  deleteUser,
 };
